@@ -1,7 +1,7 @@
-GET http://localhost:3333/videos
+GET https://node-do-zero-m5pb.onrender.com/videos
 
 ###
-POST http://localhost:3333/videos
+POST https://node-do-zero-m5pb.onrender.com/videos
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3333/videos/de80247b-6b10-47c6-b0c5-1198c08b4db0
+PUT https://node-do-zero-m5pb.onrender.com/videos/de80247b-6b10-47c6-b0c5-1198c08b4db0
 Content-Type: application/json
 
 {
@@ -21,4 +21,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3333/videos/860c0ac4-181c-4fbc-9b6a-ffd503f3929a
+DELETE https://node-do-zero-m5pb.onrender.com/videos/860c0ac4-181c-4fbc-9b6a-ffd503f3929a
