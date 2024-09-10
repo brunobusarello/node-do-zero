@@ -6,7 +6,7 @@ const server = fastify()
 //const dataBase = new DatabaseMemory
 const dataBase = new DatabasePostgres
 
-server.register(require('@fastify/cors'), { 
+server.register('cors', { 
     origin: '*' // Permitir todas as origens
 });
 
