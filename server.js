@@ -1,14 +1,13 @@
 import { fastify } from 'fastify'
 import { DatabasePostgres } from './database-postgres.js'
+import cors from '@fastify/cors'
 //import { DatabaseMemory} from './database-memory.js'
 
 const server = fastify()
 //const dataBase = new DatabaseMemory
 const dataBase = new DatabasePostgres
 
-server.register('cors', { 
-    origin: '*' // Permitir todas as origens
-});
+server.register(cors)
 
 server.get('/videos', async(request, reply) => {
     const search = request.query.search
@@ -53,5 +52,5 @@ server.delete('/videos/:id', async(request, reply) => {
 
 server.listen({
     host: '0.0.0.0',
-    port: process.env.PORT ?? 3333
+    port: process.env.PORT ?? 3000
 })

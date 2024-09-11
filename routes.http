@@ -1,4 +1,5 @@
-GET https://node-do-zero-m5pb.onrender.com/videos
+//GET https://node-do-zero-m5pb.onrender.com/videos
+GET http://localhost:3000/videos
 
 ###
 POST https://node-do-zero-m5pb.onrender.com/videos
