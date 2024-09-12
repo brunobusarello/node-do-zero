@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Vídeos</title>
+</head>
+<body>
+  <h1>Vídeos</h1>
+  <div id="videos-container"></div>
+
+  <script>
+    async function fetchVideos() {
+      const response = await fetch('http://localhost:3000/videos');
+      const videos = await response.json();
+
+      const container = document.getElementById('videos-container');
+      videos.forEach(video => {
+        const videoElement = document.createElement('div');
+        videoElement.innerHTML = `
+          <h2>${video.title}</h2>
+          <p>${video.description}</p>
+          <p>Duração: ${video.duration} segundos</p>
+        `;
+        container.appendChild(videoElement);
+      });
+    }
+
+    fetchVideos();
+  </script>
+</body>
+</html>

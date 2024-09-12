@@ -7,7 +7,9 @@ const server = fastify()
 //const dataBase = new DatabaseMemory
 const dataBase = new DatabasePostgres
 
-server.register(cors)
+server.register(cors, {
+    origin: '*' // Permitir todas as origens
+})
 
 server.get('/videos', async(request, reply) => {
     const search = request.query.search
