@@ -1,6 +1,7 @@
 import { fastify } from 'fastify'
 import { DatabasePostgres } from './database-postgres.js'
 import cors from '@fastify/cors'
+import formbody from '@fastify/formbody'
 //import { DatabaseMemory} from './database-memory.js'
 
 const server = fastify()
@@ -10,6 +11,8 @@ const dataBase = new DatabasePostgres
 server.register(cors, {
     origin: '*' // Permitir todas as origens
 })
+
+server.register(formbody)
 
 server.get('/videos', async(request, reply) => {
     const search = request.query.search
@@ -27,7 +30,6 @@ server.post('/videos', async(request, reply) =>{
         description,
         duration
     })
-
     return reply.status(201).send()
 })
 
