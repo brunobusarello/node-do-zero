@@ -1,6 +1,7 @@
 var trava = 0
 const form = document.getElementById('myForm');
 const itemList = document.getElementById('itemList');
+const api = 'https://node-do-zero-m5pb.onrender.com/videos'
 
 form.addEventListener('submit', async function (event) {
   event.preventDefault(); // Impede o envio tradicional do formulário
@@ -13,7 +14,7 @@ form.addEventListener('submit', async function (event) {
   };
 
   try {
-    const response = await fetch('http://localhost:3000/videos', {
+    const response = await fetch(api, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -39,7 +40,7 @@ form.addEventListener('submit', async function (event) {
 
 async function deleteSelected(id) {
     try {
-        const resposta = await fetch(`http://localhost:3000/videos/${id}`, {
+        const resposta = await fetch(`${api}/${id}`, {
             method: 'DELETE', // Define o método HTTP como DELETE
             headers: {
                 'Content-Type': 'application/json',
@@ -59,10 +60,14 @@ async function deleteSelected(id) {
     }
 }
 
+function update(values) {
+  console.log(values)
+}
+
 // Função para buscar e atualizar a lista de itens cadastrados
 async function fetchItems() {
   try {
-    const response = await fetch('http://localhost:3000/videos');
+    const response = await fetch(api);
     const items = await response.json();
 
     const table = document.querySelector('#tbody');
@@ -81,12 +86,14 @@ async function fetchItems() {
         const cell2 = newRow.insertCell(1);
         const cell3 = newRow.insertCell(2);
         const cell4 = newRow.insertCell(3);
+        const cell5 = newRow.insertCell(4);
 
         // Adicione os valores nas células
         cell1.innerHTML = item.title;
         cell2.innerHTML = item.description;
         cell3.innerHTML = item.duration;
         cell4.innerHTML = `<button onclick="deleteSelected('${item.id}')">Deletar</button>`
+        cell5.innerHTML = `<a href='editar.html?id=${item.id}')">Editar</a>`
     });
   } catch (error) {
     console.error('Erro ao buscar os itens:', error);
