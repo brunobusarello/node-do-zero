@@ -1,7 +1,7 @@
-GET https://node-do-zero-m5pb.onrender.com/videos
+GET https://node-do-zero-m5pb.onrender.com/videos?search=057312a5-d31d-4eb8-9f61-01be3a38f06d
 
 ###
-GET http://localhost:3000/videos
+GET http://localhost:3000/videos?search=057312a5-d31d-4eb8-9f61-01be3a38f06d
 
 ###
 POST https://node-do-zero-m5pb.onrender.com/videos

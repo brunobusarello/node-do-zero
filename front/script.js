@@ -1,7 +1,6 @@
 var trava = 0
 const form = document.getElementById('myForm');
-const itemList = document.getElementById('itemList');
-const api = 'https://node-do-zero-m5pb.onrender.com/videos'
+const api = 'http://localhost:3000/videos'
 
 form.addEventListener('submit', async function (event) {
   event.preventDefault(); // Impede o envio tradicional do formulário
